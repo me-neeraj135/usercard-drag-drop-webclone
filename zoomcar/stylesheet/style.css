@@ -185,9 +185,33 @@
   padding-left: 10px;
   background-color: white;
 }
+.locationBox {
+  display: none;
+  width: 94%;
+  min-height: 60vh;
+  background-color: white;
+  border-radius: 8px;
+  position: relative;
+  z-index: 9999;
+  padding: 1.5rem;
+  box-shadow: 1px 1px 3px 2px rgb(150, 137, 137);
+}
+#searchTextField {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 0.6rem;
+  border: 0.5px solid gray;
+  outline: none;
+  border-radius: 3px;
+}
+#currentLocation:hover .locationBox {
+  display: block;
+}
 .search-box p {
   text-align: left;
 }
+
 .vLine {
   border-left: 3px solid green;
   height: 25px;

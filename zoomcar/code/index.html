@@ -18,6 +18,10 @@
       href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
       rel="stylesheet"
     />
+
+    <!-- google maps -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKCKMNKBtV7y8vdyuGv7szwxBDWTSQMpQ&libraries=places"></script>
   </head>
   <body>
     <header class="">
@@ -141,10 +145,15 @@
           </div>
           <div class="hero-section-searchBar-wrapper">
             <div class="search-box">
-              <p>"557K/456, Muslim Nagar, Alamba"</p>
+              <p id="currentLocation">"557K/456, Muslim Nagar, Alamba"</p>
+
               <div class="vLine"></div>
               <p>6 May '24, 1:00 PM - 6 May '24, 5:00 PM</p>
               <button class="search-btn">get car</button>
+            </div>
+            <div class="locationBox">
+              <input type="text" id="searchTextField" />
+              <div id="map"></div>
             </div>
           </div>
         </div>

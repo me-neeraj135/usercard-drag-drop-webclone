@@ -6,6 +6,66 @@ companyProfile.addEventListener("click", () => {
   headerDropDownIcon.classList.toggle("rotate");
 });
 
+// maps location
+
+var mapBox = document.getElementById("map");
+var currentLocation = document.getElementById("currentLocation");
+
+currentLocation.addEventListener("clickb", (e) => {
+  console.log(e, `ff`);
+});
+
+var map;
+var service;
+var infowindow;
+
+function initialize() {
+  var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: pyrmont,
+    zoom: 15,
+  });
+  var input = document.getElementById("searchTextField");
+  let autocomplete = new google.maps.places.Autocomplete(input);
+
+  autocomplete.bindTo("bounds", map);
+  let marker = new google.maps.Marker({
+    map: map,
+  });
+
+  // google.maps.event.addEventListener(autocomplete, "place_changed", () => {
+  //   let place = autocomplete.getPlace();
+
+  //   if (place.geometry.viewport) {
+  //     map.fitBounds(place.geometry.viewport);
+  //   } else {
+  //     map.setCenter(place.geometry.location);
+  //     map.setZoom(17);
+  //   }
+  //   marker.setPosition(place.geometry.location);
+  //   marker.setVisible(true);
+
+  //   var request = {
+  //     location: place.geometry.location,
+  //     radius: "500",
+  //     type: ["restaurant"],
+  //   };
+
+  //   service = new google.maps.places.PlacesService(map);
+  //   service.nearbySearch(request, callback);
+  // });
+}
+
+// function callback(results, status) {
+//   if (status == google.maps.places.PlacesServiceStatus.OK) {
+//     for (var i = 0; i < results.length; i++) {
+//       createMarker(results[i]);
+//     }
+//   }
+// }
+google.maps.event.addDomListener(window, "load", initialize);
+
 // sidebar overlay
 
 const sideBarOverlay = document.querySelector(".sideBar-overlay");
@@ -40,10 +100,7 @@ popularPlace.addEventListener("click", (event) => {
 document.addEventListener("DOMContentLoaded", function () {
   const scrollRight = document.getElementById("scrollRight");
   const scrollLeft = document.getElementById("scrollLeft");
-
   const userCards = document.querySelector(".userCards-wrapper");
-
-  console.log("Initial Scroll Left:", userCards.scrollLeft);
 
   // scroll right
 
@@ -54,12 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
       left: -620,
       behavior: "smooth",
     });
-    console.log("Scroll Left After:", userCards.scrollLeft);
   });
 
   // scroll left
-
-  console.log(scrollLeft);
   scrollLeft.addEventListener("click", () => {
     userCards.scrollBy({
       top: 0,
@@ -73,7 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const sec7_q1 = document.getElementById("sec7-q1");
 const sec7_arrow1 = document.getElementById("sec7-q1-arrow");
-
 const sec7_ans1 = document.getElementById("sec7-ans1");
 
 const sec7_q2 = document.getElementById("sec7-q2");
